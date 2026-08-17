@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("data/creditcard.csv")
+# df = pd.read_csv("data/creditcard.csv")
 # print(df.head())
 # print(df.info())
 # print(df.describe())
@@ -39,30 +39,28 @@ df = pd.read_csv("data/creditcard.csv")
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-X = df.drop("Class",axis=1)
-y = df["Class"]
+def prepare_data():
+    
+    df = pd.read_csv("data/creditcard.csv")
+    df = df.drop_duplicates()
+
+    
+    X = df.drop("Class",axis=1)
+    y = df["Class"]
 
 
-X_train , X_test , y_train , y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    stratify=y,
-    random_state=42
-)
+    X_train , X_test , y_train , y_test = train_test_split(
+        X,
+        y,
+        test_size=0.2,
+        stratify=y,
+        random_state=42
+    )
 
 
-scaler = StandardScaler()
+    scaler = StandardScaler()
 
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
 
-
-print("X_train shape:", X_train.shape)
-print("X_test shape:", X_test.shape)
-
-print("y_train distribution:")
-print(y_train.value_counts())
-
-print("y_test distribution:")
-print(y_test.value_counts())
+    return X_train , X_test , y_train , y_test
