@@ -1,0 +1,153 @@
+# Experiment 1
+
+#  Scaling had a very big impact on the performance of KNN. 
+#  Without Scaling, Recall was 2.1% and F1 was 4.1%, while after Scaling, 
+#  Recall increased to 68.4% and F1 increased to 79.8%. So in this dataset, 
+#  Scaling is very important for KNN.
+
+
+#_____________________________________________________________________________________
+
+# Experiment 3 
+
+# By decreasing the Threshold from 0.5 to 0.3, Recall increased 
+# from 57.89% to 64.21% and F1 increased from 68.75% to 72.62%, 
+# while Precision decreased slightly from 84.62% to 83.56%. Increasing 
+# the Threshold to 0.7 decreased Recall and F1. Therefore, in the values
+# ​​examined, Threshold=0.3 showed better performance for fraud detection.
+
+#_____________________________________________________________________________________
+
+# Logistic regression model 
+# [[56641    10]
+#  [   40    55]]
+# TN = 56641 FP = 10 FN = 40 TP = 55
+# precision logistic = 0.8461538461538461
+# recall logistic = 0.5789473684210527
+# f1 logistic = 0.6875
+
+# KNN model
+# [[56648     3]
+#  [   30    65]]
+# TN = 56648 FP = 3 FN = 30 TP = 65
+# precision KNN :  0.9558823529411765
+# Recall KNN :  0.6842105263157895
+# F1 KNN :  0.7975460122699386
+
+# Decision tree model
+# [[56642     9]
+#  [   28    67]]
+# TN = 56642 FP = 9 FN = 28 TP = 67
+# precision Decision tree = 0.881578947368421
+# recall Decision tree = 0.7052631578947368
+# f1 Decision tree = 0.783625730994152
+
+#______________________________________________________________________________
+
+# ======> Cross validation <======
+
+
+# === Logostic Regression
+# Precision: [0.89583333 0.84313725 0.89130435 0.84745763 0.83870968]
+# Recall: [0.57333333 0.57333333 0.53947368 0.65789474 0.68421053]
+# F1: [0.69918699 0.68253968 0.67213115 0.74074074 0.75362319]
+# Mean Precision logistic : 0.8632884481198759
+# Mean Recall logistic : 0.6056491228070175
+# Mean F1 logistic : 0.7096443502194244
+
+# KNN 
+# Mean Precision KNN : 0.9158802308802307
+# Mean Recall KNN : 0.767298245614035
+# Mean F1 KNN : 0.833493038482404
+
+# Decision Tree
+# Mean Precision Decision Tree : 0.9074082073182522
+# Mean Recall Decision Tree : 0.7698245614035087
+# Mean F1 Decision Tree : 0.8323741343463515
+
+#                   ***** Report Result *****
+
+#                Model :  Mean Precision  Mean Recall   Mean F1
+# 0  Logistic Regression        0.863288     0.605649  0.709644
+# 1                  KNN        0.915880     0.767298  0.833493
+# 2        Decision Tree        0.907408     0.769825  0.832374
+
+#____________________________________________________________________________
+
+# Experiment 1 : KNN Unscaled
+
+
+# [[56651     0]
+#  [   93     2]]
+# TN = 56651 FP = 0 FN = 93 TP = 2
+# precision KNN unscaled :  1.0
+# Recall KNN unscaled:  0.021052631578947368
+# F1 KNN unscaled :  0.041237113402061855
+
+#          ***** KNN scaled Vs Unscaled *****
+#            Model :  Precision    Recall        F1
+# 0  Without Scaling   1.000000  0.021053  0.041237
+# 1     With Scaling   0.955882  0.684211  0.797546
+
+#____________________________________________________________________________
+
+# Experiment 2 : Hyperparameter
+
+#       ====== KNN Hyper ====== 
+# precision KNN 1 :  0.8292682926829268
+#    Recall KNN 1 :  0.7157894736842105
+#       F1 KNN  1 : 0.768361581920904
+# ----------------------------------------
+# precision KNN 5 :  0.9558823529411765
+#    Recall KNN 5 :  0.6842105263157895
+#       F1 KNN  5 : 0.7975460122699386
+# ----------------------------------------
+# precision KNN 20 :  0.9154929577464789
+#    Recall KNN 20 :  0.6842105263157895
+#        F1 KNN  20 : 0.7831325301204819
+
+
+#  ====== Decision Tree Hyper ====== 
+# Max depth ==> None
+# precision Decision Tree :  0.7204301075268817
+#   Recall Decision Tree  :  0.7052631578947368
+#        F1 Decision Tree : 0.7127659574468085
+# ----------------------------------------
+# Max depth ==> 2
+# precision Decision Tree :  0.8354430379746836
+#   Recall Decision Tree  :  0.6947368421052632
+#        F1 Decision Tree : 0.7586206896551724
+# ----------------------------------------
+# Max depth ==> 5
+# precision Decision Tree :  0.881578947368421
+#   Recall Decision Tree  :  0.7052631578947368
+#        F1 Decision Tree : 0.783625730994152
+# ----------------------------------------
+# Max depth ==> 10
+# precision Decision Tree :  0.8918918918918919
+#   Recall Decision Tree  :  0.6947368421052632
+#        F1 Decision Tree : 0.7810650887573964
+
+#___________________________________________________________________________
+
+# Experiment 3 : Threshold
+
+# Threshold : 0.3
+# Precision :0.8356164383561644
+#    Recall : 0.6421052631578947
+#        F1 : 0.7261904761904762
+# ----------------------------------------
+# Threshold : 0.5
+# Precision :0.8461538461538461
+#    Recall : 0.5789473684210527
+#        F1 : 0.6875
+# ----------------------------------------
+# Threshold : 0.7
+# Precision :0.8448275862068966
+#    Recall : 0.5157894736842106
+#        F1 : 0.6405228758169934
+
+#_________________________________________________________________
+
+
+
