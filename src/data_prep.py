@@ -1,37 +1,37 @@
 import pandas as pd
 
-# df = pd.read_csv("data/creditcard.csv")
-# print(df.head())
-# print(df.info())
-# print(df.describe())
+df = pd.read_csv("data/creditcard.csv")
+print(df.head())
+print(df.info())
+print(df.describe())
 
-# print("Number of samples : ",df.shape[0])
-# print("Number of columns : ",df.shape[1])
-# print("Number of Features : ", df.columns.tolist())
-# print("Class Distribution : ",df["Class"].value_counts())
-# print("Missing Values : ",df.isnull().sum())
-# print("Number of duplicats ",df.duplicated().sum())
+print("Number of samples : ",df.shape[0])
+print("Number of columns : ",df.shape[1])
+print("Number of Features : ", df.columns.tolist())
+print("Class Distribution : ",df["Class"].value_counts())
+print("Missing Values : ",df.isnull().sum())
+print("Number of duplicats ",df.duplicated().sum())
 
-# print(df[df.duplicated()].head())
+print(df[df.duplicated()].head())
 
-# print(df[df.duplicated(keep=False)].sort_values(
-#     by=list(df.columns)
-# ).head(20))
+print(df[df.duplicated(keep=False)].sort_values(
+    by=list(df.columns)
+).head(20))
 
-# print("_"*100)
+print("_"*100)
 
-#Total duplicate
-# duplicate = df[df.duplicated(keep=False)]
-# print("Total duplicate row: ",len(duplicate))
-# print(duplicate["Class"].value_counts())
+#Total_duplicate
+duplicate = df[df.duplicated(keep=False)]
+print("Total duplicate row: ",len(duplicate))
+print(duplicate["Class"].value_counts())
 
-# print("_"*100)
+print("_"*100)
 
-# #Delet dupilcate
-# print("Befor removing duplicate : ",df.shape)
-# df = df.drop_duplicates()
-# print("After removing duplicate : ",df.shape)
-# print(df["Class"].value_counts())
+#Delet dupilcate
+print("Befor removing duplicate : ",df.shape)
+df = df.drop_duplicates()
+print("After removing duplicate : ",df.shape)
+print(df["Class"].value_counts())
 
 
 #_______________________________________________________________
@@ -65,8 +65,6 @@ def prepare_data():
         random_state=42
     )
 
-    
-    
 
     scaler = StandardScaler()
 
